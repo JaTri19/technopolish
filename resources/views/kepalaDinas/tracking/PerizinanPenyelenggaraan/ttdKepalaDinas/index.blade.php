@@ -1,0 +1,75 @@
+@extends('layouts.app-kepalaDinas2')
+
+@section('content')
+    <div class="container">
+        <div class="card">
+            <div class="title d-flex m-4 justify-content-center align-items-center">
+                <h2>Tanda Tangan Perizinan Penyelenggaraan</h2>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="group d-flex justify-content-end">
+                <div class="status_dokumen">
+                    <h4>Tanda Tangan Kepala Dinas</h4>
+                </div>
+            </div>
+        </div>
+
+        <table class="table table-hover m-4">
+            <thead class="text-dark fs-4">
+                <tr>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">No</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Nama</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">No Telepon</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Dibuat</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Tipe Dokumen</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6 class="fw-semibold mb-0">Actions</h6>
+                    </th>
+                </tr>
+            </thead>
+            @php
+                $no = 1;
+            @endphp
+            @foreach ($permohonans as $tracking)
+                <tbody>
+                    <tr>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{ $no++ }}</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-0">{{ $tracking->nama }}</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{ $tracking->telepon }}</h6>
+                        </td>
+                        <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{ $tracking->created_at }}</p>
+                        </td>
+                        <td class="border-bottom-0">
+                            <p class="mb-0 fw-normal">{{ $tracking->tipe_dokumen }}</p>
+                        </td>
+                        <td class="border-bottom-0">
+                            <a href="/kepala-dinas/tracking/penyelenggaraan/edit/ttd_kepalaDinas/{{ $tracking->id }}"
+                                class="btn btn-success">Edit</a>
+                            {{-- <a href="/kepla-dinas/pendirian/tracking/izin_terbit_pendirian_pdf/{{ $tracking->id }}"
+                                class="btn btn-danger">Download Izin Terbit</a> --}}
+                        </td>
+                    </tr>
+                </tbody>
+            @endforeach
+        </table>
+    </div>
+@endsection

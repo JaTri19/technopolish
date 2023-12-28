@@ -1,0 +1,260 @@
+{
+    "info": {
+        "_postman_id": "caea43d3-146f-4e6b-b253-de1277b5e754",
+        "name": "Chatify",
+        "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Auth Endpoint",
+            "id": "6749cf8e-378f-4845-9b12-1c53e4631ab3",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Accept",
+                        "value": "application/json",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"socket_id\": \"9013.50262712\",\n    \"channel_name\": \"private-chatify\"\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/chat/auth"
+            },
+            "response": []
+        },
+        {
+            "name": "Send Message",
+            "id": "103720f0-ebce-4c2d-9871-ff94f42f6346",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        { "key": "file", "type": "file", "src": [] },
+                        { "key": "id", "value": "1", "type": "text" },
+                        { "key": "type", "value": "user", "type": "text" },
+                        {
+                            "key": "message",
+                            "value": "hi there",
+                            "type": "text"
+                        },
+                        {
+                            "key": "temporaryMsgId",
+                            "value": "temp_1",
+                            "type": "text"
+                        }
+                    ]
+                },
+                "url": "{{base_url}}/sendMessage"
+            },
+            "response": []
+        },
+        {
+            "name": "Fetch User's Messages",
+            "id": "95e4d692-80cb-4d81-a2ed-48642f1f7c8d",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"id\":1\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/fetchMessages"
+            },
+            "response": []
+        },
+        {
+            "name": "Download File",
+            "id": "6d704318-c5d2-427b-a031-f8527feeb3df",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{base_url}}/download/file-name-here"
+            },
+            "response": []
+        },
+        {
+            "name": "Make Message Seen",
+            "id": "fa915046-e381-4938-ad1d-b79be555ddb5",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"id\":1\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/makeSeen"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Contacts",
+            "id": "fd5da402-78e9-4cea-83d2-21efcd434bb9",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": "{{base_url}}/getContacts"
+            },
+            "response": []
+        },
+        {
+            "name": "Get Favorites",
+            "id": "533b893a-7006-4b9d-8ed8-1e3663df74dd",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": "{{base_url}}/favorites"
+            },
+            "response": []
+        },
+        {
+            "name": "Star a user (make as favorite)",
+            "id": "967a653f-3a93-42c9-8144-17703929abe3",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_id\":1\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/star"
+            },
+            "response": []
+        },
+        {
+            "name": "Search",
+            "id": "cd5ccf78-995c-4bfd-bbad-db91ff4eaccc",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{base_url}}/search?input=blah",
+                    "host": ["{{base_url}}"],
+                    "path": ["search"],
+                    "query": [{ "key": "input", "value": "blah" }]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "Get Shared Photos",
+            "id": "e1974b1a-7429-4479-9759-2ad8f5a4b4b9",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_id\":1\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/shared"
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Conversation",
+            "id": "6204b799-1d8f-48fd-8b31-8a0f38784fc5",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_id\":1\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/deleteConversation"
+            },
+            "response": []
+        },
+        {
+            "name": "Update User's Settings",
+            "id": "b5d985c2-c45c-4891-bdea-38b422f679fb",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "messengerColor",
+                            "value": "messengerColor-2",
+                            "type": "text"
+                        },
+                        { "key": "dark_mode", "value": "dark", "type": "text" },
+                        { "key": "avatar", "type": "file", "src": [] }
+                    ],
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/updateSettings"
+            },
+            "response": []
+        },
+        {
+            "name": "Set User's Active Status",
+            "id": "326df55a-472b-4f26-89ce-d8b79edd562a",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"user_id\":1,\n    \"status\": 1\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/setActiveStatus"
+            },
+            "response": []
+        },
+        {
+            "name": "Fetch User/Group By ID & Type",
+            "id": "15a33392-ea74-49e7-89ed-4c0ce2431c6a",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"id\":1,\n    \"type\": \"user\"\n}",
+                    "options": { "raw": { "language": "json" } }
+                },
+                "url": "{{base_url}}/idInfo"
+            },
+            "response": []
+        }
+    ],
+    "auth": {
+        "type": "bearer",
+        "bearer": { "token": "1|brrGHnRQeRECr5Si6kaddhrlRZBzpb3G6KwEmNZP" }
+    },
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "id": "6f971970-63ae-4a3c-a93d-84931530fb8c",
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "id": "20581e61-0175-4392-a44a-dd3f50de4e6a",
+                "type": "text/javascript",
+                "exec": [""]
+            }
+        }
+    ],
+    "variable": [
+        {
+            "id": "c212ebe3-5b27-4d03-b3ad-63966727c1c3",
+            "key": "base_url",
+            "value": "http://127.0.0.1:8000/chatify/api"
+        }
+    ]
+}
